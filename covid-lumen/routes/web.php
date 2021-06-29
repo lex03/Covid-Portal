@@ -18,7 +18,7 @@ $router->get('/', function () use ($router) {
 });
 $router->get('/patients','PatientController@index');
 $router->post('/patients','PatientController@store');
-
+$router->post('/patients/{id}','PatientController@update');
 $router->post('/login','AuthController@login');
 $router->get('/logout','AuthController@logout');
 $router->post('/register','AuthController@register');

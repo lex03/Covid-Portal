@@ -11,7 +11,7 @@
        <Loader v-if="loader" /> 
        <CustomerList
         :customers="customers"
-        @onDelete="onDelete"
+        
         @onEdit="onEdit"
       />
     </div>
@@ -49,18 +49,18 @@ export default {
         this.loader = false;
       });
     },
-    deleteCustomer(id) {
-      this.loader = true;
+    // deleteCustomer(id) {
+    //   this.loader = true;
 
-      axios
-        .delete(`${this.url}/${id}`)
-        .then(() => {
-          this.getCustomers();
-        })
-        .catch(e => {
-          alert(e);
-        });
-    },
+    //   axios
+    //     .delete(`${this.url}/${id}`)
+    //     .then(() => {
+    //       this.getCustomers();
+    //     })
+    //     .catch(e => {
+    //       alert(e);
+    //     });
+    // },
     createCustomer(data) {
       this.loader = true;
       console.log(data);
@@ -79,10 +79,10 @@ export default {
       this.loader = true;
 
       axios
-        .put(`${this.url}/${data.id}`, {
-          first_name: data.first_name,
-          last_name: data.last_name,
-          email: data.email
+        .post(this.url+"/patients/"+data.id, {
+          fullname: data.fullname,
+          // last_name: data.last_name,
+          // email: data.email
         })
         .then(() => {
           this.getCustomers();
@@ -91,11 +91,11 @@ export default {
           alert(e);
         });
     },
-    onDelete(id) {
-      // window.console.log("app delete " + id);
+    // onDelete(id) {
+    //   // window.console.log("app delete " + id);
 
-      this.deleteCustomer(id);
-    },
+    //   this.deleteCustomer(id);
+    // },
     onEdit(data) {
       // window.console.log("app edit ", data);
 

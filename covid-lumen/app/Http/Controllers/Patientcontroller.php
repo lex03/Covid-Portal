@@ -36,5 +36,15 @@ class PatientController extends Controller
         return response()->json(['message'=>'success'],200);
     }
 
+    public function update(Request $request, $id)
+    {
+        // $patient = Patient::findOrFail($id);
+        $patient = Patient::where('id', $id)->first();
+        $patient->fullname = $request->fullname;
+        // $patient->last_name = $request->lastname;
+        // $patient->email = $request->email;
+        $patient->save();
+        return response()->json($request);
+    }
     //
 }

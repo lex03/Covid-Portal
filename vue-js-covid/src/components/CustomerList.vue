@@ -16,7 +16,6 @@
             v-for="customer in customers"
             :key="customer.id"
             :customer="customer"
-            @onDelete="onDelete"
             @onEdit="onEdit"
           />
         </tbody>
@@ -38,10 +37,10 @@ export default {
     }
   },
   methods: {
-    onDelete(id) {
-      // window.console.log("customer list delete " + id);
-      this.$emit("onDelete", id);
-    },
+    // onDelete(id) {
+    //   // window.console.log("customer list delete " + id);
+    //   this.$emit("onDelete", id);
+    // },
     onEdit(data) {
       // window.console.log("customer list edit " + data);
       this.$emit("onEdit", data);
