@@ -51,7 +51,7 @@ class AuthController extends Controller
     public function logout(Request $request)
     {
         $api_token = $request->api_token;
-
+        
         $user = User::where('api_token', $api_token)->first();
 
         if (!$user) {

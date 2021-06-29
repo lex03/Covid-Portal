@@ -3,7 +3,7 @@
     <div class="ui fixed inverted menu vue-color">
       <div class="ui container">
         <a href="#" class="header item">Vue JS CRUD with Laravel API</a>
-        
+        <Logout/>
       </div>
     </div>
 
@@ -22,14 +22,17 @@
 import axios from "axios";
 import MyForm from "./MyForm";
 import CustomerList from "./CustomerList";
+import Logout from "./Logout";
 import Loader from "./Loader";
+
 
 export default {
   name: "App",
   components: {
     MyForm,
     CustomerList,
-    Loader
+    Loader,
+    Logout
   },
   data() {
     return {
