@@ -19,16 +19,16 @@ class AuthController extends Controller
         //
     }
 
-    public function register(Request $request)
-    {
-        $user = User::create([
-            'username'  => $request->username,
-            'password'  => app('hash')->make($request->password),
-            'api_token' => Str::random(50),
-        ]);
+    // public function register(Request $request)
+    // {
+    //     $user = User::create([
+    //         'username'  => $request->username,
+    //         'password'  => app('hash')->make($request->password),
+    //         'api_token' => Str::random(50),
+    //     ]);
 
-        return response()->json(['status' => 'success', 'user' => $user], 200);
-    }
+    //     return response()->json(['status' => 'success', 'user' => $user], 200);
+    // }
 
     public function login(Request $request)
     {
