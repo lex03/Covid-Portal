@@ -2,7 +2,7 @@
   <div id="app">
     <div class="ui fixed inverted menu vue-color">
       <div class="ui container">
-        <a href="#" class="header item">Vue JS CRUD with Laravel API</a>
+        <a href="#" class="header item">COVID PORTAL</a>
         <Logout/>
       </div>
     </div>
@@ -38,7 +38,18 @@ export default {
     return {
       url: "http://localhost:8000",
       customers: [],
-      form: { fullname: "", isEdit: false },
+      form: { 
+        fullname: "",
+        dob: "",
+        age: "",
+        acn: "",
+        address: "",
+        vaccine: "",
+        v1date: "",
+        v2date: "",
+        result: "",
+        iso: "",
+        isEdit: false },
       loader: false
     };
   },
@@ -66,10 +77,19 @@ export default {
     // },
     createCustomer(data) {
       this.loader = true;
-      console.log(data);
+      console.log("data");
       axios
         .post(this.url+"/patients", {
           fullname: data.fullname,
+          dob: data.dob,
+          age: data.age,
+          acn: data.acn,
+          address: data.address,
+          vaccine: data.vaccine,
+          v1date: data.v1date,
+          v2date: data.v2date,
+          result: data.result,
+          iso: data.iso,
         })
         .then(() => {
           this.getCustomers();
@@ -84,6 +104,16 @@ export default {
       axios
         .post(this.url+"/patients/"+data.id, {
           fullname: data.fullname,
+          dob: data.dob,
+          age: data.age,
+          acn: data.acn,
+          address: data.address,
+          vaccine: data.vaccine,
+          v1date: data.v1date,
+          v2date: data.v2date,
+          result: data.result,
+          iso: data.iso,
+          
           // last_name: data.last_name,
           // email: data.email
         })

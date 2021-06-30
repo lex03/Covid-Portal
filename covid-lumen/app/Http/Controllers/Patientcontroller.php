@@ -23,15 +23,17 @@ class PatientController extends Controller
     {
         Patient::create([
             'fullname' => $request->fullname,
-            // 'age' => $request->age,
-            // 'dob' => $request->dob,
+            'age' => $request->age,
+            'dob' => $request->dob,
+            'acn' => $request->acn,
+            'address' => $request->address,
             // 'acn' => $request->acn,
             // 'address' => $request->address,
-            // 'vaccdone' => $request->vaccdone,
-            // 'vaccdone1' => $request->vaccdone1,
-            // 'vaccdone2' => $request->vaccdone2,
-            // 'result' => $request->result,
-            // 'iso' => $request->iso,
+            'vaccine' => $request->vaccine,
+            'v1date' => $request->v1date,
+            'v2date' => $request->v2date,
+            'result' => $request->result,
+            'iso' => $request->iso,
         ]);
         return response()->json(['message'=>'success'],200);
     }
@@ -41,7 +43,16 @@ class PatientController extends Controller
         // $patient = Patient::findOrFail($id);
         $patient = Patient::where('id', $id)->first();
         $patient->fullname = $request->fullname;
-        // $patient->last_name = $request->lastname;
+        $patient->dob = $request->dob;
+        $patient->age = $request->age;
+        $patient->acn = $request->acn;
+        $patient->address = $request->address;
+        $patient->vaccine = $request->vaccine;
+        $patient->v1date = $request->v1date;
+        $patient->v2date = $request->v2date;
+        $patient->result = $request->result;
+        $patient->iso = $request->iso;
+
         // $patient->email = $request->email;
         $patient->save();
         return response()->json($request);

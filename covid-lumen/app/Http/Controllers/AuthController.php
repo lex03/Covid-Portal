@@ -14,6 +14,7 @@ class AuthController extends Controller
      *
      * @return void
      */
+    
     public function __construct()
     {
         //
@@ -32,6 +33,7 @@ class AuthController extends Controller
 
     public function login(Request $request)
     {
+        session_start();
         $user = User::where('username', $request->username)->first();
 
         if (!$user) {
@@ -40,8 +42,10 @@ class AuthController extends Controller
 
         if (Hash::check($request->password, $user->password)){
 
-                $user->update(['api_token'=>Str::random(50)]);
-                return response()->json(['status' => 'success', 'user' => $user], 200);
+            $token = Str::random(50);
+            $user->update(['api_token'=>$token]);
+            $_SESSION['token'] = $token;    
+            return response()->json(['status' => 'success', 'user' => $user], 200);
         }
 
        return response()->json(['status' => 'error', 'message' => 'Invalid Credentials'], 401);
@@ -50,14 +54,14 @@ class AuthController extends Controller
 
     public function logout(Request $request)
     {
-        $api_token = $request->api_token;
+        session_start();
+        // $api_token = $request->username;
+        $user = User::where('api_token', $_SESSION['token'])->first();
         
-        $user = User::where('api_token', $api_token)->first();
-
         if (!$user) {
             return response()->json(['status' => 'error', 'message' => 'Not Logged in'], 401);
         }
-        $user->api_token = null;
+        $user->api_token = "";
 
         $user->save();
 

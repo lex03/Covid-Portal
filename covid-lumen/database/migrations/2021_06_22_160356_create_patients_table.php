@@ -16,15 +16,15 @@ class CreatePatientsTable extends Migration
         Schema::create('patients', function (Blueprint $table) {
                 $table->increments('id');
                 $table->text("fullname");
-                // $table->integer("age");
-                // $table->date("dob");
-                // $table->string("acn");
-                // $table->text("address");
-                // $table->string("vaccdone");
-                // $table->date("vaccdone1");
-                // $table->date("vaccdone2");
-                // $table->string("result");
-                // $table->string("iso");
+                $table->integer("age");
+                $table->string("dob");
+                $table->string("acn");
+                $table->text("address");
+                $table->string("vaccine");
+                $table->string("v1date")->default('-');
+                $table->string("v2date")->default('-');
+                $table->string("result");
+                $table->string("iso")->default('lewe');
                 $table->timestamps();
         });
     }

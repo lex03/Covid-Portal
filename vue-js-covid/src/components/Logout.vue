@@ -35,6 +35,7 @@ export default {
         this.btnClass = "ui primary button submit-button";
         
         axios.get(this.url+"/logout").then(e=>{
+        console.log(e.message);
         console.log("logged out");
         })
         .catch(e => {

@@ -6,7 +6,15 @@
           <tr>
             <th style="width: 50px; text-align: center;">#</th>
             <th>Name</th>
-            <th>E-mail</th>
+            <th>Age</th>
+            <th>Dob</th>
+            <th>ACN</th>
+            <th>Address</th>
+            <th>Vaccination</th>
+            <th>1st Dose</th>
+            <th>2nd Dose</th>
+            <th>Result</th>
+            <th>Isolation</th>
             <th style="width: 148px;">Action</th>
           </tr>
         </thead>

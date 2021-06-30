@@ -1,8 +1,9 @@
 <template>
   <div class="my-form">
-    <form class="ui form">
-      <div class="fields">
-        <div class="four wide field">
+    <form class="ui form w-full max-w-lg">
+      <div class="flex flex-wrap -mx-3 mb-6">
+      
+        <div class="four wide field px-2">
           <label>Full Name</label>
           <input
             type="text"
@@ -13,29 +14,112 @@
           />
         </div>
 
-        <!-- <div class="four wide field">
-          <label>Last Name</label>
+        <div class="two wide field px-2">
+          <label>Age</label>
           <input
             type="text"
-            name="last_name"
-            placeholder="Last Name"
+            name="age"
+            placeholder="age"
             @change="handleChange"
-            :value="form.last_name"
+            :value="form.age"
+          />
+        </div>
+        
+        <div class="four wide field px-2">
+          <label>Date of Birth</label>
+          <input
+            type="date"
+            name="dob"
+            placeholder="DOB"
+            @change="handleChange"
+            :value="form.dob"
           />
         </div>
 
-        <div class="six wide field">
-          <label>E-mail</label>
+        <div class="six wide field px-2">
+          <label>Aadhar card number</label>
           <input
-            type="email"
-            name="email"
-            placeholder="joe@gmail.com"
+            type="text"
+            name="acn"
+            placeholder="Aadhar card Number"
             @change="handleChange"
-            :value="form.email"
+            :value="form.acn"
           />
-        </div> -->
+        </div>
 
-        <div class="two wide field">
+        <div class="sixteen wide field px-2">
+          <label>Address</label>
+          <input
+            type="text"
+            name="address"
+            placeholder="Full address"
+            @change="handleChange"
+            :value="form.address"
+          />
+        </div>
+
+        <div class="two wide field px-2">
+        <label for="vaccine">Vaccination Taken</label>
+          <select
+            id="vaccine"
+            name="vaccine"
+            @change="handleChange"
+            :value="form.vaccine"
+          >
+            <option value="yes">Yes</option>
+            <option value="no">NO</option>
+          </select>
+        </div>
+        
+        <div v-if="form.vaccine === 'yes'" class="six wide field px-2">
+          <label>First Dose date</label>
+          <input
+            type="date"
+            name="v1date"
+            placeholder="1st Dose date"
+            id="from-datepicker"
+            @change="handleChange"
+            :value="form.v1date"
+          />
+        </div>
+        <div  v-if="form.vaccine === 'yes'" class="six wide field px-2">
+          <label>Second Dose Date</label>
+          <input
+            type="date"
+            name="v2date"
+            placeholder="2nd Dose date"
+            id="from-datepicker"
+            @change="handleChange"
+            :value="form.v2date"
+          />
+        </div>
+        <div class="six wide field px-2">
+          <label for="result">Result</label>
+          <select
+            id="result"
+            name="result"
+            @change="handleChange"
+            :value="form.result"
+          >
+            <option value="positive">Positive</option>
+            <option value="negetive">Negetive</option>
+            <option value="recovered">Recovered</option>
+          </select>
+        </div>
+        <div  v-if="form.result === 'positive'" class="six wide field px-2">
+          <label for="iso">Isolation</label>
+          <select
+            id="iso"
+            name="iso"
+            @change="handleChange"
+            :value="form.iso"
+          >
+            <option value="home">Home</option>
+            <option value="hospital">Hospital</option>
+          </select>       
+        </div>
+        
+        <div class="two wide field px-2">
           <button :class="btnClass" @click="onFormSubmit">
             {{ btnName }}
           </button>
@@ -85,31 +169,54 @@ export default {
       }
     },
     formValidation() {
-      // first name
+      // name
       if (document.getElementsByName("fullname")[0].value === "") {
         alert("Enter fullname");
         return false;
       }
 
-      // // last name
-      // if (document.getElementsByName("last_name")[0].value === "") {
-      //   alert("Enter last name");
-      //   return false;
-      // }
+      // // dob
+      if (document.getElementsByName("dob")[0].value === "") {
+         alert("Enter dob");
+         return false;
+      }
 
       // // email
-      // if (document.getElementsByName("email")[0].value === "") {
-      //   alert("Enter email");
-      //   return false;
-      // }
+      if (document.getElementsByName("age")[0].value === "") {
+      alert("Enter Age");
+      return false;
+      }
 
+      if (document.getElementsByName("address")[0].value === "") {
+      alert("Enter Address");
+      return false;
+      }
+      if (document.getElementsByName("acn")[0].value === "") {
+      alert("Enter Aadhar card number");
+      return false;
+      }
+      if (document.getElementsByName("vaccine")[0].value === "") {
+      alert("Enter Vaccination");
+      return false;
+      }
+      if (document.getElementsByName("result")[0].value === "") {
+      alert("Enter Result");
+      return false;
+      }
       return true;
     },
     clearFormFields() {
       // clear form data
       this.form.fullname = "";
-      // this.form.last_name = "";
-      // this.form.email = "";
+      this.form.dob = "";
+      this.form.age = "";
+      this.form.acn="";
+      this.form.address="";
+      this.form.vaccine="";
+      this.form.v1date="";
+      this.form.v2date="";
+      this.form.result-"";
+      this.form.iso="";
       this.form.isEdit = false;
 
       // clear form fields
