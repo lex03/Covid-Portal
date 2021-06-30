@@ -1,10 +1,43 @@
 <template>
-  <form class="form" method="post" name="login">
-        <h2 class="login-title">Login</h2>
-        <input type="text" class="login-input" name="username" placeholder="Username" autofocus="true" @change="handleChange" :value="form.username" required/>
-        <input type="password" class="login-input" name="password" placeholder="Password" @change="handleChange" :value="form.password" required/>
-        <input type="submit" name="submit" class="login-button"  @click="onFormSubmit"/>
-  </form>
+  <div class="card">
+    <h3 class="title">Log in</h3>
+    <form class="form" method="post" name="login">
+      <div class="email-login">
+        <label for="username"> <b>Username</b></label>
+        <input
+          type="text"
+          id="username"
+          class="login-input"
+          name="username"
+          placeholder="Username"
+          autofocus="true"
+          @change="handleChange"
+          :value="form.username"
+          required
+        />
+        <label for="psw"><b>Password</b></label>
+        <input
+          type="password"
+          class="login-input"
+          name="password"
+          id="psw"
+          placeholder="Password"
+          @change="handleChange"
+          :value="form.password"
+          required
+        />
+      </div>
+      <button type="submit" name="submit" @click="onFormSubmit" class="cta-btn">
+        Log In
+      </button>
+      <!-- <input
+      type="submit"
+      name="submit"
+      class="login-button"
+      @click="onFormSubmit"
+    /> -->
+    </form>
+  </div>
 </template>
 
 <script>
@@ -15,6 +48,7 @@ import axios from "axios";
 
 export default {
   name: "App",
+
   components: {
     // MyForm,
     // CustomerList,
@@ -24,18 +58,17 @@ export default {
     return {
       url: "http://localhost:8000",
       // customers: [],
-      form: { username: "", password:"" },
-      loader: false
+      form: { username: "", password: "" },
+      loader: false,
     };
   },
   methods: {
-     
-     handleChange(event) {
-      const {name, value } = event.target;
+    handleChange(event) {
+      const { name, value } = event.target;
       let form = this.form;
       form[name] = value;
       this.form = form;
-      console.log(this.form.username)
+      console.log(this.form.username);
     },
     onFormSubmit(event) {
       // prevent form submit
@@ -47,25 +80,24 @@ export default {
         this.$emit("onFormSubmit", this.form);
 
         this.btnClass = "ui primary button submit-button";
-        
-        axios
-        .post(this.url+"/login", {
-          username: this.form.username,
-          password: this.form.password,
-        })
-        .then(() => {
-          console.log("logged in");
-          this.$router.push('dashboard');
 
-        })
-        .catch(e => {
-          alert(e);
-        });
-        
-        
-        
-        
-        
+        axios
+          .post(this.url + "/login", {
+            username: this.form.username,
+            password: this.form.password,
+          })
+          .then((res) => {
+            console.log("logged in");
+            if (res.data.user.username === "admin") {
+              this.$router.push("dashboard");
+            } else {
+              this.$router.push("userdashboard");
+            }
+          })
+          .catch((e) => {
+            alert(e);
+          });
+
         // clear form fields
         this.clearFormFields();
       }
@@ -92,7 +124,7 @@ export default {
 
       // clear form fields
       document.querySelector(".form").reset();
-    }
+    },
   },
 };
 </script>
@@ -121,5 +153,115 @@ thead tr th {
 
 .ui.inverted.dimmer {
   background-color: rgba(255, 255, 255, 0) !important;
+}
+
+body {
+  background-color: rgb(228, 229, 247);
+}
+.social-login img {
+  width: 24px;
+}
+a {
+  text-decoration: none;
+}
+
+.card {
+  font-family: sans-serif;
+  width: 300px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 3em;
+  margin-bottom: 3em;
+  border-radius: 10px;
+  background-color: #ffff;
+  padding: 1.8rem;
+  box-shadow: 2px 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+.title {
+  text-align: center;
+  font-weight: bold;
+  margin: 0;
+  font-size: 25px;
+}
+.subtitle {
+  text-align: center;
+  font-weight: bold;
+}
+.btn-text {
+  margin: 0;
+}
+
+.social-login {
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+}
+
+.google-btn {
+  background: #fff;
+  border: solid 2px rgb(245 239 239);
+  border-radius: 8px;
+  font-weight: bold;
+  display: flex;
+  padding: 10px 10px;
+  flex: auto;
+  align-items: center;
+  gap: 5px;
+  justify-content: center;
+}
+.fb-btn {
+  background: #fff;
+  border: solid 2px rgb(69, 69, 185);
+  border-radius: 8px;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.or {
+  text-align: center;
+  font-weight: bold;
+  border-bottom: 2px solid rgb(245 239 239);
+  line-height: 0.1em;
+  margin: 25px 0;
+}
+.or span {
+  background: #fff;
+  padding: 0 10px;
+}
+
+.email-login {
+  display: flex;
+  flex-direction: column;
+}
+.email-login label {
+  color: rgb(170 166 166);
+}
+
+input[type="text"],
+input[type="password"] {
+  padding: 15px 20px;
+  margin-top: 8px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-sizing: border-box;
+}
+
+.cta-btn {
+  background-color: rgb(69, 69, 185);
+  color: white;
+  padding: 18px 20px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  width: 100%;
+  border-radius: 10px;
+  border: none;
+}
+
+.forget-pass {
+  text-align: center;
+  display: block;
 }
 </style>

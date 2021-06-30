@@ -2,7 +2,6 @@
   <div class="my-form">
     <form class="ui form w-full max-w-lg">
       <div class="flex flex-wrap -mx-3 mb-6">
-      
         <div class="four wide field px-2">
           <label>Full Name</label>
           <input
@@ -24,7 +23,7 @@
             :value="form.age"
           />
         </div>
-        
+
         <div class="four wide field px-2">
           <label>Date of Birth</label>
           <input
@@ -59,7 +58,7 @@
         </div>
 
         <div class="two wide field px-2">
-        <label for="vaccine">Vaccination Taken</label>
+          <label for="vaccine">Vaccination Taken</label>
           <select
             id="vaccine"
             name="vaccine"
@@ -70,7 +69,7 @@
             <option value="no">NO</option>
           </select>
         </div>
-        
+
         <div v-if="form.vaccine === 'yes'" class="six wide field px-2">
           <label>First Dose date</label>
           <input
@@ -82,7 +81,7 @@
             :value="form.v1date"
           />
         </div>
-        <div  v-if="form.vaccine === 'yes'" class="six wide field px-2">
+        <div v-if="form.vaccine === 'yes'" class="six wide field px-2">
           <label>Second Dose Date</label>
           <input
             type="date"
@@ -106,19 +105,14 @@
             <option value="recovered">Recovered</option>
           </select>
         </div>
-        <div  v-if="form.result === 'positive'" class="six wide field px-2">
+        <div v-if="form.result === 'positive'" class="six wide field px-2">
           <label for="iso">Isolation</label>
-          <select
-            id="iso"
-            name="iso"
-            @change="handleChange"
-            :value="form.iso"
-          >
+          <select id="iso" name="iso" @change="handleChange" :value="form.iso">
             <option value="home">Home</option>
             <option value="hospital">Hospital</option>
-          </select>       
+          </select>
         </div>
-        
+
         <div class="two wide field px-2">
           <button :class="btnClass" @click="onFormSubmit">
             {{ btnName }}
@@ -135,21 +129,20 @@ export default {
   data() {
     return {
       btnName: "Save",
-      btnClass: "ui primary button submit-button"
+      btnClass: "ui primary button submit-button",
     };
   },
   props: {
     form: {
-      type: Object
-    }
+      type: Object,
+    },
   },
   methods: {
     handleChange(event) {
-      const {name, value } = event.target;
+      const { name, value } = event.target;
       let form = this.form;
       form[name] = value;
       this.form = form;
-     
     },
     onFormSubmit(event) {
       // prevent form submit
@@ -177,31 +170,31 @@ export default {
 
       // // dob
       if (document.getElementsByName("dob")[0].value === "") {
-         alert("Enter dob");
-         return false;
+        alert("Enter dob");
+        return false;
       }
 
       // // email
       if (document.getElementsByName("age")[0].value === "") {
-      alert("Enter Age");
-      return false;
+        alert("Enter Age");
+        return false;
       }
 
       if (document.getElementsByName("address")[0].value === "") {
-      alert("Enter Address");
-      return false;
+        alert("Enter Address");
+        return false;
       }
       if (document.getElementsByName("acn")[0].value === "") {
-      alert("Enter Aadhar card number");
-      return false;
+        alert("Enter Aadhar card number");
+        return false;
       }
       if (document.getElementsByName("vaccine")[0].value === "") {
-      alert("Enter Vaccination");
-      return false;
+        alert("Enter Vaccination");
+        return false;
       }
       if (document.getElementsByName("result")[0].value === "") {
-      alert("Enter Result");
-      return false;
+        alert("Enter Result");
+        return false;
       }
       return true;
     },
@@ -210,25 +203,25 @@ export default {
       this.form.fullname = "";
       this.form.dob = "";
       this.form.age = "";
-      this.form.acn="";
-      this.form.address="";
-      this.form.vaccine="";
-      this.form.v1date="";
-      this.form.v2date="";
-      this.form.result-"";
-      this.form.iso="";
+      this.form.acn = "";
+      this.form.address = "";
+      this.form.vaccine = "";
+      this.form.v1date = "";
+      this.form.v2date = "";
+      this.form.result - "";
+      this.form.iso = "";
       this.form.isEdit = false;
 
       // clear form fields
       document.querySelector(".form").reset();
-    }
+    },
   },
   updated() {
     if (this.form.isEdit) {
       this.btnName = "Update";
       this.btnClass = "ui orange button submit-button";
     }
-  }
+  },
 };
 </script>
 

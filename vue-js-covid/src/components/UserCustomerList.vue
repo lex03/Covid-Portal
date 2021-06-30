@@ -15,7 +15,6 @@
             <th>2nd Dose</th>
             <th>Result</th>
             <th>Isolation</th>
-            <th style="width: 68px;">Action</th>
           </tr>
         </thead>
 
@@ -24,7 +23,6 @@
             v-for="customer in customers"
             :key="customer.id"
             :customer="customer"
-            @onEdit="onEdit"
           />
         </tbody>
       </table>
@@ -33,7 +31,7 @@
 </template>
 
 <script>
-import Customer from "./Customer";
+import Customer from "./UserCustomer";
 export default {
   name: "CustomerList",
   components: {

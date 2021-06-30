@@ -3,17 +3,15 @@
     <div class="ui fixed inverted menu vue-color">
       <div class="ui container">
         <a href="#" class="header item">COVID PORTAL</a>
-        <Logout/>
+        <!-- <h5 class="header item">Admin Side</h5> -->
+        <Logout />
       </div>
     </div>
 
     <div class="ui main container">
-      <MyForm :form="form" @onFormSubmit="onFormSubmit" /> 
-       <Loader v-if="loader" /> 
-       <CustomerList
-        :customers="customers"
-        @onEdit="onEdit"
-      />
+      <MyForm :form="form" @onFormSubmit="onFormSubmit" />
+      <Loader v-if="loader" />
+      <CustomerList :customers="customers" @onEdit="onEdit" />
     </div>
   </div>
 </template>
@@ -25,20 +23,19 @@ import CustomerList from "./CustomerList";
 import Logout from "./Logout";
 import Loader from "./Loader";
 
-
 export default {
   name: "App",
   components: {
     MyForm,
     CustomerList,
     Loader,
-    Logout
+    Logout,
   },
   data() {
     return {
       url: "http://localhost:8000",
       customers: [],
-      form: { 
+      form: {
         fullname: "",
         dob: "",
         age: "",
@@ -49,15 +46,16 @@ export default {
         v2date: "",
         result: "",
         iso: "",
-        isEdit: false },
-      loader: false
+        isEdit: false,
+      },
+      loader: false,
     };
   },
   methods: {
     getCustomers() {
       this.loader = true;
 
-      axios.get(this.url+"/patients").then(data => {
+      axios.get(this.url + "/patients").then((data) => {
         console.log(data.data);
         this.customers = data.data;
         this.loader = false;
@@ -79,7 +77,7 @@ export default {
       this.loader = true;
       console.log("data");
       axios
-        .post(this.url+"/patients", {
+        .post(this.url + "/patients", {
           fullname: data.fullname,
           dob: data.dob,
           age: data.age,
@@ -94,7 +92,7 @@ export default {
         .then(() => {
           this.getCustomers();
         })
-        .catch(e => {
+        .catch((e) => {
           alert(e);
         });
     },
@@ -102,7 +100,7 @@ export default {
       this.loader = true;
 
       axios
-        .post(this.url+"/patients/"+data.id, {
+        .post(this.url + "/patients/" + data.id, {
           fullname: data.fullname,
           dob: data.dob,
           age: data.age,
@@ -113,14 +111,11 @@ export default {
           v2date: data.v2date,
           result: data.result,
           iso: data.iso,
-          
-          // last_name: data.last_name,
-          // email: data.email
         })
         .then(() => {
           this.getCustomers();
         })
-        .catch(e => {
+        .catch((e) => {
           alert(e);
         });
     },
@@ -145,11 +140,11 @@ export default {
         // call create customer
         this.createCustomer(data);
       }
-    }
+    },
   },
   created() {
     this.getCustomers();
-  }
+  },
 };
 </script>
 
@@ -177,5 +172,8 @@ thead tr th {
 
 .ui.inverted.dimmer {
   background-color: rgba(255, 255, 255, 0) !important;
+}
+.body {
+  background-color: white;
 }
 </style>

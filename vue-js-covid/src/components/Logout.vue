@@ -1,7 +1,5 @@
 <template>
-  
-    <button class="login-button" @click="onFormSubmit">Logout</button>
-  
+  <button class="leftbtn" @click="onFormSubmit">Logout</button>
 </template>
 
 <script>
@@ -21,58 +19,39 @@ export default {
     return {
       url: "http://localhost:8000",
       // customers: [],
-      loader: false
+      loader: false,
     };
   },
   methods: {
-     
     onFormSubmit(event) {
       // prevent form submit
       event.preventDefault();
 
       // form validation
-      
-        this.btnClass = "ui primary button submit-button";
-        
-        axios.get(this.url+"/logout").then(e=>{
-        console.log(e.message);
-        console.log("logged out");
+
+      this.btnClass = "ui primary button submit-button";
+
+      axios
+        .get(this.url + "/logout")
+        .then((e) => {
+          console.log(e.message);
+          console.log("logged out");
         })
-        .catch(e => {
+        .catch((e) => {
           alert(e);
         });
-        
-      
     },
-    
-    
   },
 };
 </script>
 
 <style>
-.vue-color {
-  background: #41b883 !important;
-}
-
-.main.container {
-  margin-top: 60px;
-}
-
-.submit-button {
-  margin-top: 24px !important;
+.leftbtn {
+  align-self: flex-end;
   float: right;
-}
-
-.data {
-  margin-top: 15px;
-}
-
-thead tr th {
-  background: #e0e0e0 !important;
-}
-
-.ui.inverted.dimmer {
-  background-color: rgba(255, 255, 255, 0) !important;
+  position: absolute;
+  right: 0;
+  margin-right: 50px;
+  margin-top: -4px;
 }
 </style>
