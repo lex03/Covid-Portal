@@ -1,9 +1,9 @@
 <template>
-  <button class="leftbtn" @click="onFormSubmit">Logout</button>
+  <button class="leftbtn bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded" @click="onFormSubmit">Logout</button>
 </template>
 
 <script>
-import axios from "axios";
+//import axios from "axios";
 // import MyForm from "./MyForm";
 // import CustomerList from "./CustomerList";
 // import Loader from "./Loader";
@@ -31,17 +31,19 @@ export default {
 
       this.btnClass = "ui primary button submit-button";
 
-      axios
-        .get(this.url + "/logout")
-        .then((e) => {
-          console.log(e.message);
-          console.log("logged out");
-        })
-        .catch((e) => {
-          alert(e);
-        });
-    },
-  },
+      // axios
+      //   .get(this.url + "/logout")
+      //   .then(() => {
+      localStorage.removeItem('username');
+      this.$router.push("/");
+          // console.log(e.message);
+          // console.log("logged out");
+  //       })
+  //       .catch((e) => {
+  //         alert(e);
+  //       });
+     },
+   },
 };
 </script>
 

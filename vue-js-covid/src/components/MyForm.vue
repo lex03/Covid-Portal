@@ -79,6 +79,7 @@
             id="from-datepicker"
             @change="handleChange"
             :value="form.v1date"
+            required
           />
         </div>
         <div v-if="form.vaccine === 'yes'" class="six wide field px-2">
@@ -113,12 +114,13 @@
           </select>
         </div>
 
-        <div class="two wide field px-2">
+        
+      </div>
+      <div class="flex justify-center mb-4">
           <button :class="btnClass" @click="onFormSubmit">
             {{ btnName }}
           </button>
         </div>
-      </div>
     </form>
   </div>
 </template>
@@ -129,7 +131,7 @@ export default {
   data() {
     return {
       btnName: "Save",
-      btnClass: "ui primary button submit-button",
+      btnClass: " bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded",
     };
   },
   props: {
@@ -192,6 +194,10 @@ export default {
         alert("Enter Vaccination");
         return false;
       }
+      if (document.getElementsByName("vaccine")[0].value === "yes" && document.getElementsByName("v1date")[0].value === "") {
+        alert("Enter Vaccination 1 date");
+        return false;
+      }      
       if (document.getElementsByName("result")[0].value === "") {
         alert("Enter Result");
         return false;
@@ -208,7 +214,7 @@ export default {
       this.form.vaccine = "";
       this.form.v1date = "";
       this.form.v2date = "";
-      this.form.result - "";
+      this.form.result = "";
       this.form.iso = "";
       this.form.isEdit = false;
 

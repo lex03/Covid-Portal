@@ -93,6 +93,7 @@ export default {
             // this.$session.start()
             // this.$session.set('username', res.data.user.username)
             // console.log(this.$session.get('username'));
+            localStorage.setItem('username',res.data.user.username)
             if (res.data.user.username === "admin") {
               this.$router.push("dashboard");
             } else {
@@ -100,7 +101,8 @@ export default {
             }
           })
           .catch((e) => {
-            alert(e);
+            alert(e.message);
+            console.log(e);
           });
 
         // clear form fields
