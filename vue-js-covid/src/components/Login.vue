@@ -46,7 +46,6 @@ import axios from "axios";
 // import CustomerList from "./CustomerList";
 // import Loader from "./Loader";
 
-
 export default {
   name: "App",
 
@@ -93,7 +92,7 @@ export default {
             // this.$session.start()
             // this.$session.set('username', res.data.user.username)
             // console.log(this.$session.get('username'));
-            localStorage.setItem('username',res.data.user.username)
+            localStorage.setItem("username", res.data.user.username);
             if (res.data.user.username === "admin") {
               this.$router.push("dashboard");
             } else {
@@ -203,27 +202,6 @@ a {
   display: flex;
   justify-content: center;
   gap: 5px;
-}
-
-.google-btn {
-  background: #fff;
-  border: solid 2px rgb(245 239 239);
-  border-radius: 8px;
-  font-weight: bold;
-  display: flex;
-  padding: 10px 10px;
-  flex: auto;
-  align-items: center;
-  gap: 5px;
-  justify-content: center;
-}
-.fb-btn {
-  background: #fff;
-  border: solid 2px rgb(69, 69, 185);
-  border-radius: 8px;
-  padding: 10px;
-  display: flex;
-  align-items: center;
 }
 
 .or {

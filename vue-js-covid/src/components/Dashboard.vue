@@ -56,7 +56,6 @@ export default {
       this.loader = true;
 
       axios.get(this.url + "/patients").then((data) => {
-        console.log(data.data);
         this.customers = data.data;
         this.loader = false;
       });
@@ -75,7 +74,7 @@ export default {
     // },
     createCustomer(data) {
       this.loader = true;
-      console.log("data");
+      // console.log("data");
       axios
         .post(this.url + "/patients", {
           fullname: data.fullname,
@@ -98,7 +97,6 @@ export default {
     },
     editCustomer(data) {
       this.loader = true;
-
       axios
         .post(this.url + "/patients/" + data.id, {
           fullname: data.fullname,

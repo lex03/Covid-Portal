@@ -51,8 +51,13 @@ class PatientController extends Controller
         $patient->v1date = $request->v1date;
         $patient->v2date = $request->v2date;
         $patient->result = $request->result;
+        // if($request->result == "negative" || $request->result == "recovered")
+        // {
+        //     $patient->iso = " ";
+        // }
+        // else{
         $patient->iso = $request->iso;
-
+        // }
         // $patient->email = $request->email;
         $patient->save();
         return response()->json($request);

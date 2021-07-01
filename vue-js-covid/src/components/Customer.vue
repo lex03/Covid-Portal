@@ -12,7 +12,12 @@
     <td>{{ customer.result }}</td>
     <td>{{ customer.iso }}</td>
     <td>
-      <button class="mini bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded" @click="onEdit">Edit</button>
+      <button
+        class="mini bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded"
+        @click="onEdit"
+      >
+        Edit
+      </button>
       <!-- <button class="mini ui red button" @click="onDelete">Delete</button> -->
     </td>
   </tr>

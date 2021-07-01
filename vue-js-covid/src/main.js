@@ -5,9 +5,6 @@ import Home from "./components/Home.vue";
 import Dashboard from "./components/Dashboard.vue";
 import UserDashboard from "./components/UserDashboard.vue";
 import Login from "./components/Login.vue";
-import VueSession from "vue-session";
-Vue.use(VueSession);
-
 Vue.config.productionTip = false;
 
 Vue.use(VueRouter);

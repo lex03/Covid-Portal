@@ -1,34 +1,34 @@
 <template>
   <div>
-    <nav>
+    <nav class="d-flex justify-content-center">
       <div class="logo">
-        <div class="arrow-down"></div>
+        <!-- <div class="arrow-down"></div> -->
+        <img
+          src="../assets/covid-19-on-world-map-260nw-1922924069-removebg-preview.png"
+          alt="logo"
+        />
       </div>
-      <ul>
-        <li>Services</li>
-        <li>Products</li>
-        <li>FAQs</li>
-        <li>Contact</li>
-      </ul>
     </nav>
     <section class="banner">
       <div class="container">
         <div class="banner-text">
           <h1>Covid portal</h1>
           <p>
-            <strong
-              >We make it easy to get the most out of your virtual
-              machine.</strong
-            >
-            Our tools make it simple to track how your Droplets are performing
-            and help you to respond quickly if there is a problem
+            <strong>
+              Government of India is taking all necessary steps to ensure </strong
+            >that we are prepared well to face the challenge and threat posed by
+            the growing pandemic of COVID-19 the Corona Virus. The most
+            important factor in preventing the spread of the Virus locally is to
+            empower the citizens with the right information and taking
+            precautions as per the advisories being issued by Ministry of Health
+            & Family Welfare
           </p>
           <router-link to="/login"><button>Login</button></router-link>
         </div>
       </div>
       <img
         class="banner-image"
-        src="https://preview.ibb.co/bMi5Y6/banner_img.png"
+        src="https://medicinespatentpool.org/uploads/2020/05/covid19_logo.png"
         alt="monitoring"
       />
     </section>
@@ -42,11 +42,12 @@
               src="https://image.ibb.co/cFV8mR/monitoring.png"
               alt="monitoring"
             />
-            <h3 class="card-title">Monitoring</h3>
+            <h3 class="card-title">Tracking</h3>
             <p class="card-text">
-              Collect metrics on visibility, monitor Droplet performance and
-              receive alerts when problems arise in your infrastructure–at no
-              additional cost.
+              Helps to Track and maintain a record of COVID 19 Positive patients
+              with an Admin side and a Client side. Tracking is Effecient
+              because it helps the users to track the status of every patients
+              by the help of our COVID-19 Portal.
             </p>
             <a class="card-link" href="#">Learn more</a>
           </div>
@@ -58,11 +59,12 @@
               src="https://image.ibb.co/jfmg6R/cloud_firewalls.png"
               alt="monitoring"
             />
-            <h3 class="card-title">Cloud Firewalls</h3>
+            <h3 class="card-title">Interactive UI</h3>
             <p class="card-text">
-              Perfect for both staging and production deployments, cloud
-              firewalls let you easily secure your infrastructure and define
-              what services are visible on your Droplets–at no additional cost.
+              “Design is not just what it looks like and feels like Design is
+              how it works.” This famous quote from Steve Job stresses the
+              importance of having good interaction design – the user’s overall
+              experience and satisfaction with a product.
             </p>
             <a class="card-link" href="#">Learn more</a>
           </div>
@@ -74,11 +76,13 @@
               src="https://image.ibb.co/fcnzt6/team_management.png"
               alt="team management"
             />
-            <h3 class="card-title">Team Management</h3>
+            <h3 class="card-title">Safe & Secured Data</h3>
             <p class="card-text">
-              With Digital Teams you can invite and manage users, ensure
-              security with two-factor authentication, and control your resource
-              spend with centralized billing–at no additional cost.
+              Keeping your passwords, financial, and other personal information
+              safe and protected from outside intruders has long been a priority
+              of businesses, but it's increasingly critical for consumers and
+              individuals to heed data protection advice and use sound practices
+              to keep your sensitive personal information safe and secure.
             </p>
             <a class="card-link" href="#">Learn more</a>
           </div>
@@ -89,34 +93,25 @@
       <div class="container">
         <div class="row">
           <div class="col-md-4">
-            <ul>
-              <li>Footer Link</li>
-              <li>Footer Link</li>
-              <li>Footer Link</li>
-              <li>Footer Link</li>
-              <li>Footer Link</li>
-              <li>Footer Link</li>
+            <ul class="justify-content-center" style="text-align:center;">
+              <li>Best Tracking Services</li>
             </ul>
           </div>
           <div class="col-md-4">
-            <ul>
-              <li>Footer Link</li>
-              <li>Footer Link</li>
-              <li>Footer Link</li>
-              <li>Footer Link</li>
-              <li>Footer Link</li>
-              <li>Footer Link</li>
+            <ul class="justify-content-center" style="text-align:center;">
+              <li>Interactive UI</li>
             </ul>
           </div>
           <div class="col-md-4">
-            <ul>
-              <li>Footer Link</li>
-              <li>Footer Link</li>
-              <li>Footer Link</li>
-              <li>Footer Link</li>
-              <li>Footer Link</li>
+            <ul class="justify-content-center" style="text-align:center;">
+              <li>Secured Data</li>
             </ul>
           </div>
+        </div>
+        <div class="row">
+          <center>
+            <p style="color:white;">Authored By Lex and Srinivass</p>
+          </center>
         </div>
       </div>
     </footer>
@@ -130,9 +125,9 @@ body {
 }
 
 nav {
-  height: 50px;
-  background: #ffffff;
-  box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.15);
+  height: 100px;
+  background: transparent;
+  /* box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.15); */
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -140,42 +135,19 @@ nav {
   z-index: -2;
   position: relative;
 }
-nav ul {
-  margin: 0;
-  list-style: none;
-  padding: 0;
-  display: flex;
-  align-items: center;
-  cursor: pointer;
-}
-nav ul li {
-  margin-right: 30px;
-  color: #4b71ff;
-}
-nav ul li:last-child {
-  margin-right: 0px;
-}
 nav .logo {
-  height: 50px;
-  width: 75px;
+  height: 150px;
+  width: 185px;
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
-  top: 0;
-  left: 0;
-  margin-right: 30px;
-  background-color: #4b71ff;
+  /* top: 0;
+  left: 0; */
+  margin-top: 20px;
+  /* background-color: #4b71ff; */
   cursor: pointer;
 }
-nav .arrow-down {
-  width: 0;
-  height: 0;
-  border-left: 15px solid transparent;
-  border-right: 15px solid transparent;
-  border-top: 15px solid #fff;
-}
-
 .banner {
   height: auto;
   margin: 32px 0px;
@@ -184,6 +156,7 @@ nav .arrow-down {
   width: 100%;
   position: relative;
   z-index: 1;
+  margin-right: 400px;
 }
 @media (min-width: 768px) {
   .banner {
@@ -194,7 +167,7 @@ nav .arrow-down {
 .banner .banner-image {
   position: absolute;
   opacity: 0.25;
-  right: 0px;
+  right: 100px;
   top: 0px;
   height: 300px;
   z-index: -1;
@@ -257,7 +230,7 @@ nav .arrow-down {
 .card {
   padding: 16px 24px;
   background: #ffffff;
-  height: 100%;
+  height: 80%;
   position: relative;
   border: none;
   box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.15);
