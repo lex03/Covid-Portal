@@ -6,34 +6,20 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
-
+session_start();
 class AuthController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
     
+    public $currentuser;
+   
     public function __construct()
     {
-        //
+        $this->currentuser = "FU";
     }
-
-    // public function register(Request $request)
-    // {
-    //     $user = User::create([
-    //         'username'  => $request->username,
-    //         'password'  => app('hash')->make($request->password),
-    //         'api_token' => Str::random(50),
-    //     ]);
-
-    //     return response()->json(['status' => 'success', 'user' => $user], 200);
-    // }
 
     public function login(Request $request)
     {
-        session_start();
+        
         $user = User::where('username', $request->username)->first();
 
         if (!$user) {
@@ -44,7 +30,10 @@ class AuthController extends Controller
 
             $token = Str::random(50);
             $user->update(['api_token'=>$token]);
-            $_SESSION['token'] = $token;    
+            $this->currentuser = $request->username;
+            $_SESSION['user'] = $request->username;
+
+            
             return response()->json(['status' => 'success', 'user' => $user], 200);
         }
 
@@ -54,17 +43,17 @@ class AuthController extends Controller
 
     public function logout(Request $request)
     {
-        session_start();
+        
         // $api_token = $request->username;
-        $user = User::where('api_token', $_SESSION['token'])->first();
+        //echo  $_SESSION['user'];
+        $user = User::where('username', $_SESSION['user'])->first();
         
         if (!$user) {
             return response()->json(['status' => 'error', 'message' => 'Not Logged in'], 401);
         }
-        $user->api_token = "";
-
-        $user->save();
-
+        $api_token = "";
+        $user->update(['api_token'=>$api_token]);
+        
             return response()->json(['status' => 'Success', 'message' => 'You are now logged out'], 200);
 
     }

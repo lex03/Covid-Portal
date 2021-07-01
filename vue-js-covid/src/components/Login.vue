@@ -46,6 +46,7 @@ import axios from "axios";
 // import CustomerList from "./CustomerList";
 // import Loader from "./Loader";
 
+
 export default {
   name: "App",
 
@@ -88,6 +89,10 @@ export default {
           })
           .then((res) => {
             console.log("logged in");
+            console.log(res.data);
+            // this.$session.start()
+            // this.$session.set('username', res.data.user.username)
+            // console.log(this.$session.get('username'));
             if (res.data.user.username === "admin") {
               this.$router.push("dashboard");
             } else {
