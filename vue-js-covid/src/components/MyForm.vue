@@ -102,7 +102,7 @@
             :value="form.result"
           >
             <option value="positive">Positive</option>
-            <option value="negetive">Negetive</option>
+            <option value="negative">Negative</option>
             <option value="recovered">Recovered</option>
           </select>
         </div>
