@@ -13,17 +13,6 @@
           />
         </div>
 
-        <div class="two wide field px-2">
-          <label>Age</label>
-          <input
-            type="text"
-            name="age"
-            placeholder="age"
-            @change="handleChange"
-            :value="form.age"
-          />
-        </div>
-
         <div class="four wide field px-2">
           <label>Date of Birth</label>
           <input
@@ -32,6 +21,19 @@
             placeholder="DOB"
             @change="handleChange"
             :value="form.dob"
+            id="datefield"
+          />
+        </div>
+
+        <div class="one wide field px-2">
+          <label>Age</label>
+          <input
+            type="text"
+            name="age"
+            placeholder="0"
+            @change="handleChange"
+            :value="form.age"
+            readonly
           />
         </div>
 
@@ -46,7 +48,7 @@
           />
         </div>
 
-        <div class="sixteen wide field px-2">
+        <div class="fifteen wide field px-2">
           <label>Address</label>
           <input
             type="text"
@@ -113,25 +115,40 @@
             <option value="hospital">Hospital</option>
           </select>
         </div>
-
-        
       </div>
       <div class="flex justify-center mb-4">
-          <button :class="btnClass" @click="onFormSubmit">
-            {{ btnName }}
-          </button>
-        </div>
+        <button :class="btnClass" @click="onFormSubmit">
+          {{ btnName }}
+        </button>
+      </div>
     </form>
   </div>
 </template>
 
+<script>
+// $(function() {
+//   var dtToday = new Date();
+
+//   var month = dtToday.getMonth() + 1;
+//   var day = dtToday.getDate();
+//   var year = dtToday.getFullYear();
+
+//   if (month < 10) month = "0" + month.toString();
+//   if (day < 10) day = "0" + day.toString();
+
+//   var maxDate = year + "-" + month + "-" + day;
+//   $("#txtDate").attr("max", maxDate);
+// });
+//
+</script>
 <script>
 export default {
   name: "MyForm",
   data() {
     return {
       btnName: "Save",
-      btnClass: " bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded",
+      btnClass:
+        " bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded",
     };
   },
   props: {
@@ -145,6 +162,20 @@ export default {
       let form = this.form;
       form[name] = value;
       this.form = form;
+      if (document.getElementsByName("dob")[0].value != "") {
+        console.log("entered");
+        this.form.age = getAge(document.getElementsByName("dob")[0].value);
+      }
+      function getAge(dateString) {
+        var today = new Date();
+        var birthDate = new Date(dateString);
+        var age = today.getFullYear() - birthDate.getFullYear();
+        var m = today.getMonth() - birthDate.getMonth();
+        if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+          age--;
+        }
+        return age;
+      }
     },
     onFormSubmit(event) {
       // prevent form submit
@@ -163,7 +194,7 @@ export default {
         this.clearFormFields();
       }
     },
-    
+
     formValidation() {
       // name
       if (document.getElementsByName("fullname")[0].value === "") {
@@ -178,10 +209,10 @@ export default {
       }
 
       // // email
-      if (document.getElementsByName("age")[0].value === "") {
-        alert("Enter Age");
-        return false;
-      }
+      // if (document.getElementsByName("age")[0].value === "") {
+      //   alert("Enter Age");
+      //   return false;
+      // }
 
       if (document.getElementsByName("address")[0].value === "") {
         alert("Enter Address");
@@ -195,10 +226,13 @@ export default {
         alert("Enter Vaccination");
         return false;
       }
-      if (document.getElementsByName("vaccine")[0].value === "yes" && document.getElementsByName("v1date")[0].value === "") {
+      if (
+        document.getElementsByName("vaccine")[0].value === "yes" &&
+        document.getElementsByName("v1date")[0].value === ""
+      ) {
         alert("Enter Vaccination 1 date");
         return false;
-      }      
+      }
       if (document.getElementsByName("result")[0].value === "") {
         alert("Enter Result");
         return false;
