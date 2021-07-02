@@ -22,6 +22,7 @@
             @change="handleChange"
             :value="form.dob"
             id="datefield"
+            min="1899-01-01"
           />
         </div>
 
@@ -126,20 +127,17 @@
 </template>
 
 <script>
-// $(function() {
-//   var dtToday = new Date();
-
-//   var month = dtToday.getMonth() + 1;
-//   var day = dtToday.getDate();
-//   var year = dtToday.getFullYear();
-
-//   if (month < 10) month = "0" + month.toString();
-//   if (day < 10) day = "0" + day.toString();
-
-//   var maxDate = year + "-" + month + "-" + day;
-//   $("#txtDate").attr("max", maxDate);
-// });
-//
+$(document).ready(function() {
+  var today = new Date();
+  var day = today.getDate() > 9 ? today.getDate() : "0" + today.getDate(); // format should be "DD" not "D" e.g 09
+  var month =
+    today.getMonth() + 1 > 9
+      ? today.getMonth() + 1
+      : "0" + (today.getMonth() + 1);
+  var year = today.getFullYear();
+  console.log(" year + " - " + month + " - " + day");
+  $("#datefield").attr("max", year + "-" + month + "-" + day);
+});
 </script>
 <script>
 export default {
