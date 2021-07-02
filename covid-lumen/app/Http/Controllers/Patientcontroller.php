@@ -21,6 +21,34 @@ class PatientController extends Controller
     }
     public function store(Request $request)
     {
+        if($request->result == "negative" || $request->result == "recovered")
+            {    
+                $iso = "--";
+            }
+            else{
+                $iso = $request->iso;
+            }
+            if($request->v1date == "")
+            {    
+                $v1date = "--";
+            }
+            else{
+                $v1date=$request->v1date;
+            }
+            if($request->v2date == "")
+            {    
+                $v2date = "--";
+            }
+            else{
+                $v2date=$request->v2date;
+            }
+            if($request->iso == "")
+            {    
+                $iso = "--";
+            }
+            else{
+                $iso=$request->iso;
+            }
         Patient::create([
             'fullname' => $request->fullname,
             'age' => $request->age,
@@ -30,11 +58,11 @@ class PatientController extends Controller
             // 'acn' => $request->acn,
             // 'address' => $request->address,
             'vaccine' => $request->vaccine,
-            'v1date' => $request->v1date,
-            'v2date' => $request->v2date,
+            'v1date' => $v1date,
+            'v2date' => $v2date,
             'result' => $request->result,
-            'iso' => $request->iso,
-        ]);
+            'iso' => $iso,
+            ]);
         return response()->json(['message'=>'success'],200);
     }
 
@@ -54,13 +82,33 @@ class PatientController extends Controller
         
         if($request->result == "negative" || $request->result == "recovered")
         {    
-            $patient->iso = " ";
+            $patient->iso = "--";
         }
         else{
             $patient->iso = $request->iso;
         }
+        if($request->v1date == "")
+        {    
+            $patient->v1date = "--";
+        }
+        if($request->v2date == "")
+        {    
+            $patient->v2date = "--";
+        }
+        if($request->iso == "")
+        {    
+            $patient->iso = "--";
+        }
+        
         $patient->save();
         return response()->json($patient);
     }
     //
+    public function delete(Request $request, $id)
+    {
+        // $patient = Patient::findOrFail($id);
+        $patient = Patient::where('id', $id)->first();
+        $patient->delete();
+        return response()->json(['message'=>'success'],200);
+    }
 }

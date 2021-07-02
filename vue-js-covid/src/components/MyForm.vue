@@ -1,7 +1,7 @@
 <template>
   <div class="my-form">
     <form class="ui form w-full max-w-lg">
-      <div class="flex flex-wrap -mx-3 mb-6">
+      <div class="flex flex-wrap -mx-3 mb-6 justify-center">
         <div class="four wide field px-2">
           <label>Full Name</label>
           <input
@@ -57,7 +57,7 @@
           />
         </div>
 
-        <div class="two wide field px-2">
+        <div class="two wide field px-2 ">
           <label for="vaccine">Vaccination Taken</label>
           <select
             id="vaccine"
@@ -70,7 +70,7 @@
           </select>
         </div>
 
-        <div v-if="form.vaccine === 'yes'" class="six wide field px-2">
+        <div v-if="form.vaccine === 'yes'" class="four wide field px-2">
           <label>First Dose date</label>
           <input
             type="date"
@@ -82,7 +82,7 @@
             required
           />
         </div>
-        <div v-if="form.vaccine === 'yes'" class="six wide field px-2">
+        <div v-if="form.vaccine === 'yes'" class="four wide field px-2">
           <label>Second Dose Date</label>
           <input
             type="date"
@@ -93,7 +93,7 @@
             :value="form.v2date"
           />
         </div>
-        <div class="six wide field px-2">
+        <div class="two wide field px-2 ">
           <label for="result">Result</label>
           <select
             id="result"
@@ -106,7 +106,7 @@
             <option value="recovered">Recovered</option>
           </select>
         </div>
-        <div v-if="form.result === 'positive'" class="six wide field px-2">
+        <div v-if="form.result === 'positive'" class="two wide field px-2">
           <label for="iso">Isolation</label>
           <select id="iso" name="iso" @change="handleChange" :value="form.iso">
             <option value="home">Home</option>
@@ -163,6 +163,7 @@ export default {
         this.clearFormFields();
       }
     },
+    
     formValidation() {
       // name
       if (document.getElementsByName("fullname")[0].value === "") {

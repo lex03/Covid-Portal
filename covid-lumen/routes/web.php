@@ -21,4 +21,5 @@ $router->post('/patients','PatientController@store');
 $router->post('/patients/{id}','PatientController@update');
 $router->post('/login','AuthController@login');
 $router->get('/logout','AuthController@logout');
+$router->delete('/patients/delete/{id}','PatientController@delete');
 // $router->post('/register','AuthController@register');

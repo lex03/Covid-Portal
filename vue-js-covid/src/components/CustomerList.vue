@@ -4,7 +4,7 @@
       <table class="ui celled table">
         <thead>
           <tr>
-            <th style="width: 50px; text-align: center;">#</th>
+            <!-- <th style="width: 50px; text-align: center;">#</th> -->
             <th>Name</th>
             <th>Age</th>
             <th>Dob</th>
@@ -15,7 +15,7 @@
             <th>2nd Dose</th>
             <th>Result</th>
             <th>Isolation</th>
-            <th style="width: 68px;">Action</th>
+            <th style="width: 198px;">Action</th>
           </tr>
         </thead>
 
@@ -25,6 +25,7 @@
             :key="customer.id"
             :customer="customer"
             @onEdit="onEdit"
+            @onDelete="onDelete"
           />
         </tbody>
       </table>
@@ -45,10 +46,10 @@ export default {
     },
   },
   methods: {
-    // onDelete(id) {
-    //   // window.console.log("customer list delete " + id);
-    //   this.$emit("onDelete", id);
-    // },
+    onDelete(id) {
+      // window.console.log("customer list delete " + id);
+      this.$emit("onDelete", id);
+    },
     onEdit(data) {
       // window.console.log("customer list edit " + data);
       this.$emit("onEdit", data);
