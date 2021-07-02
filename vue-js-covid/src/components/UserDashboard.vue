@@ -2,7 +2,11 @@
   <div id="app">
     <div class="ui fixed inverted menu vue-color">
       <div class="ui container">
-        <a href="#" class="header item">COVID PORTAL</a>
+        <img
+          src="../assets/Group.png"
+          alt="logo"
+          width="130"
+        />
         <Logout />
       </div>
     </div>
@@ -83,7 +87,7 @@ export default {
 }
 
 thead tr th {
-  background: #e0e0e0 !important;
+  background: #6f94f8  !important;
 }
 
 .ui.inverted.dimmer {

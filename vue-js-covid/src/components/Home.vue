@@ -4,7 +4,7 @@
       <div class="logo">
         <!-- <div class="arrow-down"></div> -->
         <img
-          src="../assets/covid-19-on-world-map-260nw-1922924069-removebg-preview.png"
+          src="../assets/Group.png"
           alt="logo"
         />
       </div>
@@ -12,105 +12,28 @@
     <section class="banner">
       <div class="container">
         <div class="banner-text">
-          <h1>Covid portal</h1>
           <p>
-            <strong>
-              Government of India is taking all necessary steps to ensure </strong
-            >that we are prepared well to face the challenge and threat posed by
-            the growing pandemic of COVID-19 the Corona Virus. The most
-            important factor in preventing the spread of the Virus locally is to
-            empower the citizens with the right information and taking
-            precautions as per the advisories being issued by Ministry of Health
-            & Family Welfare
+            <strong>Covid Portal </strong> is a platform  wherein the admin can track the records of the patients , edit it time to time and and add patients. The users of the website can view the details of the users.
           </p>
           <router-link to="/login"><button>Login</button></router-link>
         </div>
       </div>
       <img
         class="banner-image"
-        src="https://medicinespatentpool.org/uploads/2020/05/covid19_logo.png"
+        height="300px"
+        src="../assets/download-removebg-preview.png"
         alt="monitoring"
       />
     </section>
 
-    <div class="container">
-      <div class="row">
-        <div class="mb-30 col-md-6 col-lg-4">
-          <div class="card">
-            <img
-              class="card-icon"
-              src="https://image.ibb.co/cFV8mR/monitoring.png"
-              alt="monitoring"
-            />
-            <h3 class="card-title">Tracking</h3>
-            <p class="card-text">
-              Helps to Track and maintain a record of COVID 19 Positive patients
-              with an Admin side and a Client side. Tracking is Effecient
-              because it helps the users to track the status of every patients
-              by the help of our COVID-19 Portal.
-            </p>
-            <a class="card-link" href="#">Learn more</a>
-          </div>
-        </div>
-        <div class="mb-30 col-md-6 col-lg-4">
-          <div class="card">
-            <img
-              class="card-icon"
-              src="https://image.ibb.co/jfmg6R/cloud_firewalls.png"
-              alt="monitoring"
-            />
-            <h3 class="card-title">Interactive UI</h3>
-            <p class="card-text">
-              “Design is not just what it looks like and feels like Design is
-              how it works.” This famous quote from Steve Job stresses the
-              importance of having good interaction design – the user’s overall
-              experience and satisfaction with a product.
-            </p>
-            <a class="card-link" href="#">Learn more</a>
-          </div>
-        </div>
-        <div class="mb-30 col-md-6 col-lg-4">
-          <div class="card">
-            <img
-              class="card-icon"
-              src="https://image.ibb.co/fcnzt6/team_management.png"
-              alt="team management"
-            />
-            <h3 class="card-title">Safe & Secured Data</h3>
-            <p class="card-text">
-              Keeping your passwords, financial, and other personal information
-              safe and protected from outside intruders has long been a priority
-              of businesses, but it's increasingly critical for consumers and
-              individuals to heed data protection advice and use sound practices
-              to keep your sensitive personal information safe and secure.
-            </p>
-            <a class="card-link" href="#">Learn more</a>
-          </div>
-        </div>
-      </div>
-    </div>
-    <footer>
-      <div class="container">
-        <div class="row">
-          <div class="col-md-4">
-            <ul class="justify-content-center" style="text-align:center;">
-              <li>Best Tracking Services</li>
-            </ul>
-          </div>
-          <div class="col-md-4">
-            <ul class="justify-content-center" style="text-align:center;">
-              <li>Interactive UI</li>
-            </ul>
-          </div>
-          <div class="col-md-4">
-            <ul class="justify-content-center" style="text-align:center;">
-              <li>Secured Data</li>
-            </ul>
-          </div>
-        </div>
-        <div class="row">
+    <footer style="position:absolute;
+   bottom:0;
+   width:100%;
+   height:60px;">
+      <div class="container" >
+        <div class="row ">
           <center>
-            <p style="color:white;">Made with ❤️ by Srinivass Talaulikar</p>
+            <p style="color:white;">Made with ❤️ by Lex Mascarenhas</p>
           </center>
         </div>
       </div>

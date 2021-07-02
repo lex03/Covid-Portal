@@ -161,7 +161,6 @@ export default {
       form[name] = value;
       this.form = form;
       if (document.getElementsByName("dob")[0].value != "") {
-        console.log("entered");
         this.form.age = getAge(document.getElementsByName("dob")[0].value);
       }
       function getAge(dateString) {
@@ -222,6 +221,10 @@ export default {
       }
       if (document.getElementsByName("vaccine")[0].value === "") {
         alert("Enter Vaccination");
+        return false;
+      }
+      if (document.getElementsByName("result")[0].value === "positive" && document.getElementsByName("iso")[0].value === "") {
+        alert("Enter Isolation");
         return false;
       }
       if (

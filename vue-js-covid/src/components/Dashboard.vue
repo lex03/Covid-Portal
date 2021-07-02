@@ -2,8 +2,11 @@
   <div id="app">
     <div class="ui fixed inverted menu vue-color">
       <div class="ui container">
-        <a href="#" class="header item">COVID PORTAL</a>
-        <!-- <h5 class="header item">Admin Side</h5> -->
+        <img
+          src="../assets/Group.png"
+          alt="logo"
+          width="130"
+        />
         <Logout />
       </div>
     </div>
@@ -156,7 +159,9 @@ export default {
 .main.container {
   margin-top: 80px;
 }
-
+.menu{
+  padding: 15px;
+}
 .submit-button {
   margin-top: 24px !important;
   float: right;
@@ -167,7 +172,7 @@ export default {
 }
 
 thead tr th {
-  background: #e0e0e0 !important;
+  background: #532626 !important;
 }
 
 .ui.inverted.dimmer {

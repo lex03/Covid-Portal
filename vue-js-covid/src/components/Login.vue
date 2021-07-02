@@ -1,5 +1,12 @@
 <template>
   <div class="card">
+    <center>
+    <img
+          src="../assets/Group.png"
+          alt="logo"
+          width="130"
+        />
+        </center>
     <h3 class="title">Log in</h3>
     <form class="form" method="post" name="login">
       <div class="email-login">
@@ -154,7 +161,7 @@ export default {
 }
 
 thead tr th {
-  background: #e0e0e0 !important;
+  background: #6f94f8 !important;
 }
 
 .ui.inverted.dimmer {
