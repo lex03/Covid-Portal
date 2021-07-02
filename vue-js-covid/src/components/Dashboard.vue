@@ -11,7 +11,11 @@
     <div class="ui main container">
       <MyForm :form="form" @onFormSubmit="onFormSubmit" />
       <Loader v-if="loader" />
-      <CustomerList :customers="customers" @onEdit="onEdit" @onDelete="onDelete"/>
+      <CustomerList
+        :customers="customers"
+        @onEdit="onEdit"
+        @onDelete="onDelete"
+      />
     </div>
   </div>
 </template>
@@ -63,11 +67,11 @@ export default {
     deleteCustomer(id) {
       this.loader = true;
       axios
-        .delete(this.url+"/patients/delete/"+id)
+        .delete(this.url + "/patients/delete/" + id)
         .then(() => {
           this.getCustomers();
         })
-        .catch(e => {
+        .catch((e) => {
           alert(e);
         });
     },
@@ -146,11 +150,11 @@ export default {
 
 <style>
 .vue-color {
-  background: #41b883 !important;
+  background: #4b71ff !important;
 }
 
 .main.container {
-  margin-top: 60px;
+  margin-top: 80px;
 }
 
 .submit-button {
@@ -168,6 +172,7 @@ thead tr th {
 
 .ui.inverted.dimmer {
   background-color: rgba(255, 255, 255, 0) !important;
+  height: 50px;
 }
 .body {
   background-color: white;

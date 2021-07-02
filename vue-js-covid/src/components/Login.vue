@@ -135,13 +135,13 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .vue-color {
-  background: #41b883 !important;
+  background: #4b71ff !important;
 }
 
 .main.container {
-  margin-top: 60px;
+  margin-top: 80px;
 }
 
 .submit-button {

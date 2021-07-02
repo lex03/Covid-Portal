@@ -110,7 +110,7 @@
         </div>
         <div class="row">
           <center>
-            <p style="color:white;">Authored By Lex and Srinivass</p>
+            <p style="color:white;">Made with ❤️ by Srinivass Talaulikar</p>
           </center>
         </div>
       </div>

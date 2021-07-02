@@ -66,11 +66,11 @@ export default {
 
 <style>
 .vue-color {
-  background: #41b883 !important;
+  background: #4b71ff !important;
 }
 
 .main.container {
-  margin-top: 60px;
+  margin-top: 80px;
 }
 
 .submit-button {
@@ -88,5 +88,6 @@ thead tr th {
 
 .ui.inverted.dimmer {
   background-color: rgba(255, 255, 255, 0) !important;
+  height: 50px;
 }
 </style>

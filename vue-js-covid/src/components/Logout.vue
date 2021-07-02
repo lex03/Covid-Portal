@@ -1,5 +1,10 @@
 <template>
-  <button class="leftbtn bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded" @click="onFormSubmit">Logout</button>
+  <button
+    class="leftbtn bg-red-500 hover:bg-red-800 text-white font-bold py-2 px-4  hover:border-red-800 rounded"
+    @click="onFormSubmit"
+  >
+    Logout
+  </button>
 </template>
 
 <script>
@@ -34,16 +39,16 @@ export default {
       // axios
       //   .get(this.url + "/logout")
       //   .then(() => {
-      localStorage.removeItem('username');
+      localStorage.removeItem("username");
       this.$router.push("/");
-          // console.log(e.message);
-          // console.log("logged out");
-  //       })
-  //       .catch((e) => {
-  //         alert(e);
-  //       });
-     },
-   },
+      // console.log(e.message);
+      // console.log("logged out");
+      //       })
+      //       .catch((e) => {
+      //         alert(e);
+      //       });
+    },
+  },
 };
 </script>
 
@@ -54,6 +59,7 @@ export default {
   position: absolute;
   right: 0;
   margin-right: 50px;
-  margin-top: -4px;
+  margin-top: -9px;
+  margin-bottom: 3px;
 }
 </style>
