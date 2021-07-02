@@ -23,7 +23,7 @@ class DatabaseSeeder extends Seeder
 
         $users = array(
             ['username' => 'admin', 'password' => Hash::make('password'),'api_token' => Str::random(50)],
-            ['username' => 'srinivass', 'password' => Hash::make('secret'),'api_token' => Str::random(50)],
+            ['username' => 'lex', 'password' => Hash::make('secret'),'api_token' => Str::random(50)],
             ['username' => 'random', 'password' => Hash::make('secret'),'api_token' => Str::random(50)],
             ['username' => 'sample', 'password' => Hash::make('secret'),'api_token' => Str::random(50)],
         );
